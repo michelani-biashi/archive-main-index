@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 信息索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: linear-gradient(145deg, #fed7a2 0%, #fbceb1 40%, #fad1c0 75%, #f5e1cc 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      color: #2e241e;
+    }
+    .page-wrap {
+      max-width: 880px;
+      width: 100%;
+      background: rgba(255, 250, 242, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 50px rgba(140, 80, 40, 0.18);
+    }
+    /* hero 主视觉 */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .hero-text {
+      flex: 2 1 240px;
+    }
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #b5572a, #974d27);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+    .hero-text .sub {
+      font-size: 1rem;
+      color: #694a33;
+      border-left: 4px solid #c9713e;
+      padding-left: 1rem;
+      margin-top: 0.6rem;
+      font-style: normal;
+      letter-spacing: 0.3px;
+    }
+    .hero-visual {
+      flex: 1.2 1 140px;
+      background: #eaceb8;
+      border-radius: 40px 16px 40px 16px;
+      padding: 1.6rem 1rem;
+      text-align: center;
+      box-shadow: inset 0 -3px 0 rgba(0,0,0,0.04);
+      background-image: radial-gradient(circle at 30% 40%, #f3dac2 8%, transparent 8%),
+                        radial-gradient(circle at 70% 70%, #edd5bb 12%, transparent 12%);
+    }
+    .hero-visual span {
+      display: inline-block;
+      background: #fff1e3;
+      padding: 0.5rem 1.6rem;
+      border-radius: 100px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #7f4f2c;
+      box-shadow: 0 4px 12px rgba(168, 94, 46, 0.12);
+      letter-spacing: 2px;
+    }
+    /* 卡片区域 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0;
+    }
+    .card {
+      background: #fffffffa;
+      border-radius: 32px;
+      padding: 1.8rem 1.4rem 1.6rem;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 6px 24px rgba(92, 53, 26, 0.07);
+      transition: transform 0.18s ease, box-shadow 0.2s;
+      border: 1px solid #fff6ec;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(146, 78, 32, 0.13);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 520;
+      color: #74492b;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #3b2b21;
+      margin-bottom: 0.3rem;
+    }
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #edd9c8;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #5a3a27;
+      letter-spacing: 0.4px;
+    }
+    /* 人群卡片（两列） */
+    .audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.2rem 0 1.8rem;
+      background: rgba(255, 243, 233, 0.5);
+      border-radius: 40px;
+      padding: 1.8rem 1.6rem;
+    }
+    .audience-item {
+      flex: 1 1 160px;
+      background: #fff9f3;
+      border-radius: 24px;
+      padding: 1.2rem 1rem;
+      border-left: 6px solid #d69762;
+      box-shadow: 0 2px 12px rgba(165, 89, 38, 0.05);
+    }
+    .audience-item h4 {
+      font-weight: 550;
+      color: #6b422b;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .audience-item p {
+      font-size: 0.9rem;
+      color: #3c2d24;
+    }
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #fff8f0;
+      border-radius: 40px;
+      padding: 1.8rem 2rem;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      border: 1px solid #fae3d0;
+    }
+    .link-paragraph a {
+      color: #ad5f30;
+      font-weight: 550;
+      text-decoration: none;
+      padding: 0.05rem 0.2rem;
+      border-bottom: 2px solid #e3b089;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .link-paragraph a:hover {
+      background: #ebcfb6;
+      border-bottom-color: #975f35;
+      border-radius: 4px;
+    }
+    .faq-hint {
+      margin-top: 2.8rem;
+      padding: 1.5rem 1.8rem;
+      background: #fef3e9;
+      border-radius: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-hint p {
+      font-size: 0.95rem;
+      color: #4c3526;
+      max-width: 70%;
+    }
+    .faq-hint .pill {
+      background: #dbaa81;
+      color: #2e1d14;
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(117, 60, 22, 0.12);
+      border: none;
+      cursor: default;
+    }
+    .footnote {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      text-align: center;
+      color: #553b2b;
+      border-top: 1px dashed #dbb89a;
+      padding-top: 1rem;
+    }
+    /* 响应式 */
+    @media (max-width: 540px) {
+      .page-wrap { padding: 1.8rem 1rem; }
+      .hero-text h1 { font-size: 2rem; }
+      .faq-hint { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .faq-hint p { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉 -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>开云 · 再次回访</h1>
+      <div class="sub">信息聚合 · 收藏导向 · 持续关注</div>
+    </div>
+    <div class="hero-visual">
+      <span>◈ 常驻索引</span>
+    </div>
+  </div>
+
+  <!-- 用途卡片：为什么要再次访问 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>📌 信息锚点</h3>
+      <p>将分散的参考内容汇总至一处，便于每次回访时快速定位。避免重复检索，提升信息管理效率。</p>
+      <span class="tag">知识梳理</span>
+    </div>
+    <div class="card">
+      <h3>📚 收藏夹延伸</h3>
+      <p>书签会沉寂，但有结构的索引页可以随内容迭代而更新。适合长期跟踪某一话题或资源集合。</p>
+      <span class="tag">持续整理</span>
+    </div>
+    <div class="card">
+      <h3>🔁 回访节奏</h3>
+      <p>不追求一次性读完，而是为后续查阅预留入口。定期回看能帮助建立更立体的认知。</p>
+      <span class="tag">循环阅读</span>
+    </div>
+  </div>
+
+  <!-- 适合人群（两列） -->
+  <div class="audience-row">
+    <div class="audience-item">
+      <h4>✧ 资料整理者</h4>
+      <p>习惯将常用链接、笔记或参考源集中管理，需要定期回顾更新。</p>
+    </div>
+    <div class="audience-item">
+      <h4>✧ 专题关注者</h4>
+      <p>对特定领域保持兴趣，通过收藏页面保持接触，而非一次性浏览。</p>
+    </div>
+    <div class="audience-item">
+      <h4>✧ 渐进学习者</h4>
+      <p>倾向分多次吸收信息，每次回访都能获得新的理解角度。</p>
+    </div>
+  </div>
+
+  <!-- 自然链接段落：嵌入开云 -->
+  <div class="link-paragraph">
+    <p>如果你正在寻找一个可以反复回来查阅的内容起点，不妨把 <a href="https://main-index-kai-yun.com">开云</a> 加入书签栏。它并非一次性展示页，而是围绕特定主题搭建的索引结构，方便你在不同阶段重新审视和挖掘信息层次。持续关注意味着你不需要每次重新搜索，只需打开这个熟悉的地址，就能延续上一次的阅读思路。</p>
+  </div>
+
+  <!-- FAQ 摘要风格提示 -->
+  <div class="faq-hint">
+    <p><strong>❓ 常见问题摘要</strong><br>
+    如何高效使用索引页？—— 建议按区块浏览，将感兴趣卡片标记为“待读”；下次回访时优先查看标记内容，形成迭代式信息吸收。</p>
+    <span class="pill">🔖 回访提醒</span>
+  </div>
+
+  <!-- 补充一句话收藏视角 -->
+  <div style="margin: 1.8rem 0 0.2rem; padding-left: 0.2rem; font-size: 0.9rem; color: #5f422f; border-left: 3px solid #d49667; padding-left: 0.9rem;">
+    “收藏是为了让信息随时间发酵，而非原地封存。”
+  </div>
+
+  <div class="footnote">
+    信息卡片式索引 · 适合再次访问与持续关注
+  </div>
+
+</div>
+</body>
+</html>
