@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 发现你的游戏乐趣</title>
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f5f9;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    a {
+      color: #0f766e;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #0d9488;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* hero */
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(145deg, #ecfdf5 0%, #ccfbf1 100%);
+      text-align: center;
+      border-bottom: 2px solid #a7f3d0;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .hero h1 span {
+      display: inline-block;
+      background: #0f766e;
+      color: #fff;
+      padding: 0 14px 4px 14px;
+      border-radius: 40px;
+      font-size: 2.6rem;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+      color: #2c3e50;
+    }
+    .hero-tagline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px 32px;
+      font-size: 0.95rem;
+      color: #3b5b5b;
+    }
+    .hero-tagline span {
+      background: rgba(15, 118, 110, 0.08);
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* grid cards (优势 / 特点) */
+    .grid-section {
+      padding: 80px 0;
+    }
+    .grid-section h2 {
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+      color: #134e4a;
+    }
+    .grid-section .sub {
+      text-align: center;
+      color: #4b6b6b;
+      margin-bottom: 48px;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 28px 22px;
+      border-radius: 28px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #d1fae5;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(15, 118, 110, 0.08);
+      transform: translateY(-3px);
+    }
+    .card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: inline-block;
+      background: #ecfdf5;
+      padding: 8px 12px;
+      border-radius: 16px;
+    }
+    .card h3 {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #3f5a5a;
+    }
+
+    /* 说明区 — 简洁双栏 */
+    .explain {
+      padding: 70px 0;
+      background: #ffffff;
+      border-top: 1px solid #e6f3ee;
+      border-bottom: 1px solid #e6f3ee;
+    }
+    .explain-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px 56px;
+    }
+    .explain-text {
+      flex: 1 1 320px;
+    }
+    .explain-text h2 {
+      font-weight: 500;
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+      color: #134e4a;
+    }
+    .explain-text p {
+      margin-bottom: 18px;
+      color: #2c3e50;
+    }
+    .explain-highlight {
+      background: #f0fdfa;
+      padding: 24px 28px;
+      border-radius: 24px;
+      border-left: 5px solid #0d9488;
+      margin-top: 24px;
+    }
+    .explain-highlight a {
+      font-weight: 500;
+      border-bottom: 1px dashed #0f766e;
+    }
+
+    /* FAQ摘要 */
+    .faq-summary {
+      padding: 70px 0;
+      background: #f4faf8;
+    }
+    .faq-summary h2 {
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.9rem;
+      color: #134e4a;
+      margin-bottom: 36px;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px 30px;
+    }
+    .faq-item {
+      background: #fff;
+      padding: 20px 24px;
+      border-radius: 20px;
+      border: 1px solid #d1fae5;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #0f766e;
+    }
+    .faq-item p {
+      color: #3d5a5a;
+      font-size: 0.92rem;
+    }
+
+    /* 底部链接 */
+    .footer {
+      padding: 48px 0 40px;
+      background: #eef8f4;
+      text-align: center;
+      border-top: 1px solid #b8e6d5;
+    }
+    .footer .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 32px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .footer .footer-links a {
+      color: #115e59;
+      border-bottom: 1px solid transparent;
+    }
+    .footer .footer-links a:hover {
+      border-bottom: 1px solid #0f766e;
+    }
+    .footer small {
+      color: #4b6b6b;
+      font-size: 0.85rem;
+    }
+
+    /* 移动端细化 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 60px 0 50px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero h1 span {
+        font-size: 1.8rem;
+        padding: 0 12px 2px 12px;
+      }
+      .grid-section h2,
+      .explain-text h2,
+      .faq-summary h2 {
+        font-size: 1.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- hero 区 -->
+  <section class="hero">
+    <div class="container">
+      <h1>你想要的游戏，<br>都叫 <span>爱游戏</span></h1>
+      <p>从热门新作到经典独立作品，用最简单的方式找到属于你的游戏世界。无需反复跳转，一个站点浏览多平台资讯与评测。</p>
+      <div class="hero-tagline">
+        <span>🎮 每日更新</span>
+        <span>📱 移动友好</span>
+        <span>🗂️ 分类清晰</span>
+        <span>🏷️ 客观内容</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 优势区：网格卡片 -->
+  <section class="grid-section">
+    <div class="container">
+      <h2>为什么越来越多玩家选择这里？</h2>
+      <p class="sub">少一点花哨，多一点实用</p>
+      <div class="grid-cards">
+        <div class="card">
+          <div class="icon">🔍</div>
+          <h3>一眼识别</h3>
+          <p>每一个游戏条目都标注类型、平台与风格，快速判断是否合胃口。</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>聚合信息</h3>
+          <p>新闻、评测、发售提醒整合在一起，不用在多个站点之间来回切。</p>
+        </div>
+        <div class="card">
+          <div class="icon">📋</div>
+          <h3>清单管理</h3>
+          <p>收藏你想玩的、标记已通关，自己的游戏库随时同步。</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>轻量快速</h3>
+          <p>页面经过优化，加载不拖沓，找游戏不浪费耐心。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明区 + 自然嵌入链接 -->
+  <section class="explain">
+    <div class="container explain-inner">
+      <div class="explain-text">
+        <h2>怎么用？跟平时逛游戏站差不多</h2>
+        <p>打开 <a href="https://line--igame.com">爱游戏</a> 就能看到按类型整理的卡片墙，点击任意卡片进入详情页，有简介、截图和社区短评。不需要注册也能浏览大部分内容，注册后可以点亮“想玩”和写简短笔记。</p>
+        <p>所有内容由编辑与玩家共同维护，没有诱导下载或夸大宣传，每一个推荐都写明了理由或出处。</p>
+        <div class="explain-highlight">
+          <strong>一个小提示</strong><br>
+          如果你总在犹豫“下一个玩什么”，试试用筛选功能按“时长小于10小时”或“剧情丰富”来选。很多冷门佳作就是这样被翻出来的。
+        </div>
+      </div>
+      <div style="flex: 1 1 260px; background: #d1fae5; border-radius: 28px; padding: 24px; text-align: center; min-height: 180px; display: flex; flex-direction: column; justify-content: center;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 8px;">🎲</span>
+        <p style="font-weight: 500; color: #115e59;">探索入口<br><a href="https://line--igame.com" style="border-bottom: 2px solid #0f766e;">爱游戏</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 摘要区 -->
+  <section class="faq-summary">
+    <div class="container">
+      <h2>常见疑问 · 快速解答</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <strong>是否需要付费？</strong>
+          <p>大部分内容免费浏览，部分深度数据或去广告功能可选支持，但基础体验完整。</p>
+        </div>
+        <div class="faq-item">
+          <strong>游戏信息更新快吗？</strong>
+          <p>编辑团队每天跟踪主要平台动态，热门游戏上线当天就会建立条目。</p>
+        </div>
+        <div class="faq-item">
+          <strong>可以在手机上用吗？</strong>
+          <p>完全适配手机与平板，卡片布局自动排列，单手操作也没问题。</p>
+        </div>
+        <div class="faq-item">
+          <strong>内容可以分享？</strong>
+          <p>每个游戏页都有分享链接，直接复制给朋友，对方看到的是同样的信息页。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部链接 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://line--igame.com">爱游戏</a>
+        <a href="#">关于</a>
+        <a href="#">隐私说明</a>
+        <a href="#">联系</a>
+      </div>
+      <small>内容仅供参考，不构成购买建议 · 游戏图片及商标归各自持有人所有</small>
+    </div>
+  </footer>
+
+</body>
+</html>
