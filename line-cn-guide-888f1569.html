@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 内容型游戏平台介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0b0f1a 0%, #1a253a 100%);
+            color: #eaeef3;
+            padding: 80px 24px 56px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #b5c8e0;
+            max-width: 680px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+        .intro-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 36px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            margin-bottom: 40px;
+        }
+        .intro-card h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #0f1a2c;
+        }
+        .intro-card p {
+            margin-bottom: 1.25em;
+            color: #2c3e50;
+        }
+        .intro-card a {
+            color: #2266cc;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .intro-card a:hover {
+            border-bottom-color: #2266cc;
+            color: #0b3d91;
+        }
+        .highlight-box {
+            background: #eef4fb;
+            border-left: 4px solid #2266cc;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 28px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0.6em;
+            font-size: 0.98rem;
+        }
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 32px 0 8px;
+        }
+        .feature-item {
+            background: #f8faff;
+            padding: 20px 22px;
+            border-radius: 16px;
+            border: 1px solid #e2e9f2;
+        }
+        .feature-item strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #0f1a2c;
+            margin-bottom: 6px;
+        }
+        .feature-item p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #3f4f62;
+        }
+        .faq-mini {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 36px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+        .faq-mini h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0f1a2c;
+        }
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #1a2a3e;
+            margin-bottom: 4px;
+        }
+        .faq-item .a {
+            color: #3d5066;
+            font-size: 0.95rem;
+        }
+        .footer-note {
+            margin-top: 48px;
+            text-align: center;
+            color: #7a8a9f;
+            font-size: 0.92rem;
+            border-top: 1px solid #dce3ed;
+            padding-top: 28px;
+        }
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .intro-card {
+                padding: 28px 20px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-mini {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>爱游戏</h1>
+        <p class="sub">发现优秀内容 · 理解游戏价值 · 找到属于你的乐趣</p>
+    </section>
+
+    <main class="container">
+        <div class="intro-card">
+            <h2>这个网站用来做什么？</h2>
+            <p>打开 <a href="https://line-cn-igame.com">爱游戏</a> 的第一眼，你可能想知道它到底能提供什么。简单说：这是一个以内容驱动的游戏信息站，聚焦游戏介绍、玩法拆解、品类推荐与玩家经验分享，不堆砌链接，不追逐热点，而是认真筛选值得花时间了解的作品。</p>
+            <p>从独立小品到经典大作，从策略解谜到沉浸叙事，站内文章通常会先帮你建立对一款游戏的完整认知——它适合谁、核心玩点在哪、大概需要投入多少时间，而不是只丢一个下载按钮。如果你厌倦了满屏广告和空洞的“必玩清单”，这里的调性更接近一本游戏杂志的目录页。</p>
+
+            <div class="highlight-box">
+                <p><strong>📌 一句话定位</strong></p>
+                <p>如果你在寻找“这个游戏到底怎么样？”的实在回答，而不是“快来下载”的催促，<a href="https://line-cn-igame.com">爱游戏</a> 会有用。它更像一个筛选器和说明书，帮你做决定前先看明白。</p>
+            </div>
+
+            <p>当然，这里不只有评测。部分文章会梳理游戏机制背后的设计思路，或者对比同类作品的差异——适合想深入理解游戏逻辑的读者。站内偶尔也会收录一些冷门但完成度很高的作品，拓宽选游戏的眼界。</p>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>🎮 品类导览</strong>
+                    <p>按玩法类型、难度梯度、风格偏好梳理，比随机搜索更高效。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>📖 深度拆解</strong>
+                    <p>不只讲好不好玩，也讲为什么好玩，结构、节奏、反馈都在分析范围内。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🧩 适合谁看</strong>
+                    <p>轻度玩家想找新尝试、老玩家想挖冷门、设计爱好者看门道——各取所需。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🔍 无冗余干扰</strong>
+                    <p>页面干净，内容优先。没有弹窗、跳转链、强制注册，专心阅读。</p>
+                </div>
+            </div>
+
+            <p>需要特别说明的是，站内信息基于编辑团队的实际体验与公开资料整理，每一篇内容都力求客观，但游戏感受终究因人而异。建议把文章当作参考线索，最终决策依然取决于你自己的偏好。</p>
+        </div>
+
+        <div class="faq-mini">
+            <h3>常见疑问速览</h3>
+            <div class="faq-item">
+                <div class="q">Q: 站内游戏覆盖哪些平台？</div>
+                <div class="a">PC、主机（Switch / PS / Xbox）以及部分移动端精品，以可玩性为主要筛选标准，不限定平台。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q: 更新频率如何？</div>
+                <div class="a">每周至少 2～3 篇内容，包括新游速评、经典重读、题材专题等，不盲目追求日更，保证每篇信息密度。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q: 是否收录商业推广内容？</div>
+                <div class="a">目前没有商业合作，所有推荐均基于编辑独立判断。如果有明确标注“推广”的内容，一定会如实告知。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q: 我想推荐一款游戏，怎么联系？</div>
+                <div class="a">可以通过站内预留的反馈渠道提交，团队会评估是否值得撰写。不过优先会覆盖知名度适中但质量扎实的作品。</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>从识别到理解，<a href="https://line-cn-igame.com">爱游戏</a> 陪你认真挑选每一段游戏时光。</p>
+        </div>
+    </main>
+</body>
+</html>
